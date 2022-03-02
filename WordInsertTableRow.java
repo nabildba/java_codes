@@ -48,3 +48,35 @@ public class WordInsertTableRow {
 
  }
 }
+
+
+/*
+ XWPFTable table; //this is the table to be populated..needs to be initialized  as per your need.
+
+   //the row ID of the empty row, which is our template row with all the formatting in it
+    int tempateRowId = 1;
+
+    // the empty row
+    XWPFTableRow rowTemplate = table.getRow(tempateRowId);
+
+    // iterate over the reportData
+     Arrays.stream(reportData).forEach(data -> {
+    // create a new row from the template, which would copy the format of previous row
+     XWPFTableRow oldRow = rowTemplate;
+     CTRow ctrow = null;
+       try {
+            ctrow = CTRow.Factory.parse(oldRow.getCtRow().newInputStream());
+           } catch (XmlException e) {e.printStackTrace();
+           } catch (IOException e) { e.printStackTrace();
+           }
+
+    XWPFTableRow newRow = new XWPFTableRow(ctrow, table);
+         newRow.getCell(0).setText(data.getDataForColumn1());
+         newRow.getCell(1).setText(data.getDataForColumn2());
+
+   // adding the newly created row tot he table   
+    table.addRow(newRow);
+});
+
+table.removeRow(tempateRowId); // removing the template row
+*/
