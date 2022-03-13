@@ -56,3 +56,21 @@ public class JListCustomRendererExample extends JFrame {
         });
     }
 }
+
+public class CountryRenderer extends JLabel implements ListCellRenderer<Country> {
+ 
+    @Override
+    public Component getListCellRendererComponent(JList<? extends Country> list, Country country, int index,
+        boolean isSelected, boolean cellHasFocus) {
+          
+        String code = country.getCode();
+        ImageIcon imageIcon = new ImageIcon(getClass().getResource("/images/" + code + ".png"));
+         
+        setIcon(imageIcon);
+        setText(country.getName());
+         
+        return this;
+    }
+     
+}
+
